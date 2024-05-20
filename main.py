@@ -3,13 +3,7 @@ import os
 from pymongo import MongoClient
 
 
-creds = {
-    'user': os.environ['MONGO_USER'],
-    'password': os.environ['MONGO_PASSWORD'],
-    'host': os.environ['MONGO_HOST'],
-    'port': int(os.environ['MONGO_PORT']),
-}
-client = MongoClient(f"mongodb://{creds['user']}:{creds['password']}@{creds['host']}:{creds['port']}")
+client = MongoClient(os.environ['CONNECTION'])
 db = client[os.environ['MONGO_DBNAME']]
 collection_from = db[os.environ['MONGO_COLLECTION_FROM']]
 collection_to = db[os.environ['MONGO_COLLECTION_TO']]
