@@ -9,7 +9,7 @@ creds = {
     'host': os.environ['MONGO_HOST'],
     'port': int(os.environ['MONGO_PORT']),
 }
-client = MongoClient(f'mongodb://{creds['user']}:{creds['password']}@{creds['host']}:{creds['port']}')
+client = MongoClient(f"mongodb://{creds['user']}:{creds['password']}@{creds['host']}:{creds['port']}")
 db = client[os.environ['MONGO_DBNAME']]
 collection_from = db[os.environ['MONGO_COLLECTION_FROM']]
 collection_to = db[os.environ['MONGO_COLLECTION_TO']]
